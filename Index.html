@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Notas - Programación Web Básica</title>
+     <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="container">
+      <section class="header">
+        <h1>Calculadora de Notas</h1>
+        <p>Programación Web Básica - carga por cantidad de errores</p>
+      </section>
+
+      <section class="card">
+        <div class="grid">
+          <div class="item">
+            <label for="erroresVF">Parte I - Verdadero/Falso</label>
+            <div class="detalle">12 consignas · 3 puntos c/u · Total 36</div>
+            <input
+              id="erroresVF"
+              type="number"
+              min="0"
+              max="12"
+              value="0"
+              oninput="calcularNota()"
+            />
+          </div>
+
+          <div class="item">
+            <label for="erroresMultiple">Parte II - Opción múltiple</label>
+            <div class="detalle">8 consignas · 4 puntos c/u · Total 32</div>
+            <input
+              id="erroresMultiple"
+              type="number"
+              min="0"
+              max="8"
+              value="0"
+              oninput="calcularNota()"
+            />
+          </div>
+
+          <div class="item">
+            <label for="erroresCompletar">Completar oración</label>
+            <div class="detalle">6 consignas · 3 puntos c/u · Total 18</div>
+            <input
+              id="erroresCompletar"
+              type="number"
+              min="0"
+              max="6"
+              value="0"
+              oninput="calcularNota()"
+            />
+          </div>
+
+          <div class="item">
+            <label for="erroresCasos">Casos prácticos</label>
+            <div class="detalle">4 consignas · 3,5 puntos c/u · Total 14</div>
+            <input
+              id="erroresCasos"
+              type="number"
+              min="0"
+              max="4"
+              value="0"
+              oninput="calcularNota()"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="card resultado">
+        <div class="box">
+          <span>Puntaje obtenido</span>
+          <strong id="puntaje">100</strong>
+        </div>
+        <div class="box">
+          <span>Nota final redondeada</span>
+          <strong id="notaFinal">100</strong>
+        </div>
+        <div class="box">
+          <span>Calificación</span>
+          <strong id="calificacion" class="estado excelente">Excelente</strong>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Detalle de cálculo</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Sección</th>
+              <th>Errores</th>
+              <th>Descuento</th>
+              <th>Puntaje</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Verdadero/Falso</td>
+              <td id="dErroresVF">0</td>
+              <td id="dDescVF">0</td>
+              <td id="dPuntosVF">36</td>
+            </tr>
+            <tr>
+              <td>Opción múltiple</td>
+              <td id="dErroresMultiple">0</td>
+              <td id="dDescMultiple">0</td>
+              <td id="dPuntosMultiple">32</td>
+            </tr>
+            <tr>
+              <td>Completar oración</td>
+              <td id="dErroresCompletar">0</td>
+              <td id="dDescCompletar">0</td>
+              <td id="dPuntosCompletar">18</td>
+            </tr>
+            <tr>
+              <td>Casos prácticos</td>
+              <td id="dErroresCasos">0</td>
+              <td id="dDescCasos">0</td>
+              <td id="dPuntosCasos">14</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="acciones">
+          <button onclick="calcularNota()">Calcular</button>
+          <button class="secondary" onclick="limpiar()">Limpiar</button>
+        </div>
+
+        <p class="nota">
+          La nota se calcula sobre 100 puntos y se muestra redondeada, sin comas
+          ni decimales. En la sección de casos prácticos, cada error descuenta
+          3,5 puntos, pero el resultado final se redondea automáticamente.
+        </p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
